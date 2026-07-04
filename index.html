@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coachella Valley's Battle of the Badges | Oct 17, 2026</title>
+  <meta name="description" content="Coachella Valley's Battle of the Badges. Saturday, October 17, 2026 at Palm Desert Civic Center Park. Doors open at 5 PM, first bout at 7 PM.">
+  <meta property="og:title" content="Coachella Valley's Battle of the Badges">
+  <meta property="og:description" content="Saturday, October 17, 2026 at Palm Desert Civic Center Park. Doors open at 5 PM, first bout at 7 PM.">
+  <meta property="og:type" content="event">
+  <meta property="og:image" content="/assets/battle-of-the-badges-flyer.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Coachella Valley's Battle of the Badges">
+  <meta name="twitter:description" content="Saturday, October 17, 2026 at Palm Desert Civic Center Park. Doors open at 5 PM, first bout at 7 PM.">
+  <meta name="twitter:image" content="/assets/battle-of-the-badges-flyer.jpg">
+  <link rel="preload" as="image" href="/assets/battle-of-the-badges-logo.png">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap">
+  <style>
+    :root {
+      --radius: .625rem;
+      --background: oklch(13% .02 40);
+      --foreground: oklch(97% .01 80);
+      --card: oklch(17% .03 40);
+      --border: oklch(30% .03 40);
+      --ember: oklch(70% .19 45);
+      --fight-blue: oklch(55% .22 260);
+      --bone: oklch(97% .01 80);
+      --ink: oklch(9% .01 40);
+      --muted-foreground: oklch(72% .03 60);
+      --gradient-ember: linear-gradient(135deg, oklch(78% .18 60), oklch(55% .22 30));
+      --shadow-ember: 0 20px 60px -20px oklch(70% .19 45 / .6);
+      --font-display: "Bebas Neue", "Arial Narrow", system-ui, sans-serif;
+      --font-body: "Barlow", system-ui, sans-serif;
+      --botb-red: oklch(0.58 0.24 27);
+      --botb-blue: oklch(0.55 0.22 260);
+      --botb-dark: oklch(0.09 0.02 40);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--foreground);
+      font-family: var(--font-body);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .botb-hero {
+      position: relative;
+      min-height: 100svh;
+      overflow: hidden;
+      isolation: isolate;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1.25rem;
+      background-image: url("/assets/battle-of-the-badges-boxing.jpg");
+      background-size: cover;
+      background-position: 50% 42%;
+    }
+
+    .botb-hero::before,
+    .botb-hero::after {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+    }
+
+    .botb-hero::before {
+      content: "";
+      background:
+        linear-gradient(90deg, oklch(0.42 0.25 27 / 0.62), transparent 42%, oklch(0.42 0.23 260 / 0.62)),
+        radial-gradient(ellipse at center, oklch(0.75 0.16 65 / 0.22), transparent 58%);
+    }
+
+    .botb-hero::after {
+      content: "";
+      background: linear-gradient(to bottom, oklch(0.09 0.02 40 / 0.35), oklch(0.09 0.02 40 / 0.68) 52%, var(--background));
+    }
+
+    .botb-shell {
+      width: min(100%, 72rem);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .botb-logo {
+      width: min(100%, 600px);
+      margin: .75rem auto 0;
+      filter: drop-shadow(0 8px 42px rgba(0, 0, 0, .95));
+    }
+
+    .botb-eyebrow {
+      font-family: var(--font-display);
+      font-size: clamp(.95rem, 2vw, 1.1rem);
+      color: var(--ember);
+      letter-spacing: .4em;
+    }
+
+    .botb-lede {
+      max-width: 36rem;
+      margin: 1rem auto 0;
+      color: var(--muted-foreground);
+      font-size: clamp(1rem, 2.2vw, 1.125rem);
+      line-height: 1.65;
+    }
+
+    .botb-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .75rem;
+      margin-top: 1.5rem;
+    }
+
+    .botb-primary,
+    .botb-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 1rem 1.6rem;
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      letter-spacing: .06em;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .botb-primary {
+      background: var(--gradient-ember);
+      color: var(--ink);
+      box-shadow: var(--shadow-ember);
+    }
+
+    .botb-secondary {
+      border: 2px solid oklch(0.55 0.22 260 / .6);
+      background: oklch(0.55 0.22 260 / .2);
+      color: var(--bone);
+      backdrop-filter: blur(12px);
+    }
+
+    .botb-primary:hover,
+    .botb-secondary:hover {
+      transform: scale(1.03);
+    }
+
+    .botb-date-pill {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2rem;
+      border: 1px solid oklch(0.70 0.19 45 / .3);
+      border-radius: calc(var(--radius) + 8px);
+      background: oklch(0.13 0.02 40 / .52);
+      padding: 1rem 1.5rem;
+      backdrop-filter: blur(14px);
+    }
+
+    .botb-date-pill strong {
+      font-family: var(--font-display);
+      font-size: clamp(1.55rem, 4vw, 2rem);
+      color: var(--ember);
+      letter-spacing: .1em;
+    }
+
+    .botb-date-pill span {
+      margin-top: .25rem;
+      color: var(--muted-foreground);
+      font-size: .75rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+    }
+
+    .botb-band {
+      border-block: 1px solid var(--border);
+      background: oklch(0.09 0.01 40 / .72);
+      padding: 2.5rem 0;
+    }
+
+    .botb-countdown {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: .75rem;
+      margin-top: 1.25rem;
+    }
+
+    .botb-countdown div,
+    .botb-card,
+    .botb-sponsor {
+      border: 1px solid var(--border);
+      background: oklch(0.17 0.03 40 / .72);
+      border-radius: calc(var(--radius) + 4px);
+    }
+
+    .botb-countdown div {
+      padding: 1rem .5rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .botb-countdown strong {
+      display: block;
+      color: var(--bone);
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 8vw, 3.75rem);
+      line-height: 1;
+    }
+
+    .botb-countdown span,
+    .botb-card span,
+    .botb-section-kicker {
+      color: var(--ember);
+      font-size: .7rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+    }
+
+    .botb-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      padding: 5rem 0;
+    }
+
+    .botb-card {
+      padding: 1.25rem;
+    }
+
+    .botb-card strong {
+      display: block;
+      margin-top: .75rem;
+      color: var(--bone);
+      white-space: pre-line;
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 4vw, 1.9rem);
+      line-height: 1.05;
+    }
+
+    .botb-section {
+      padding: 5rem 0;
+    }
+
+    .botb-section-alt {
+      border-block: 1px solid var(--border);
+      background: oklch(0.17 0.03 40 / .38);
+    }
+
+    .botb-two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .botb-heading {
+      margin: .75rem 0 0;
+      color: var(--bone);
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 4.5rem);
+      line-height: .95;
+    }
+
+    .botb-heading em {
+      color: var(--ember);
+      font-style: normal;
+    }
+
+    .botb-copy {
+      color: var(--muted-foreground);
+      font-size: 1.125rem;
+      line-height: 1.7;
+    }
+
+    .botb-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .botb-stat {
+      border: 1px solid var(--border);
+      border-radius: calc(var(--radius) + 8px);
+      background: oklch(0.13 0.02 40 / .62);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .botb-stat strong {
+      display: block;
+      color: var(--ember);
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+    }
+
+    .botb-stat span {
+      color: var(--muted-foreground);
+      font-size: .75rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .botb-contact {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid oklch(0.70 0.19 45 / .4);
+      border-radius: calc(var(--radius) + 12px);
+      background:
+        radial-gradient(circle at 88% 5%, oklch(0.70 0.19 45 / .2), transparent 20rem),
+        radial-gradient(circle at 5% 100%, oklch(0.55 0.22 260 / .2), transparent 20rem),
+        linear-gradient(135deg, var(--card), var(--background));
+      padding: clamp(2rem, 6vw, 3.5rem);
+    }
+
+    .botb-map {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: calc(var(--radius) + 8px);
+      box-shadow: var(--shadow-ember);
+    }
+
+    .botb-map iframe {
+      width: 100%;
+      height: 360px;
+      border: 0;
+      display: block;
+    }
+
+    .botb-sponsor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .75rem;
+      margin-top: 1rem;
+    }
+
+    .botb-sponsor-grid.community {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .botb-sponsor {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 4rem;
+      padding: 1rem;
+      color: oklch(0.97 0.01 80 / .82);
+      font-family: var(--font-display);
+      text-align: center;
+      letter-spacing: .05em;
+    }
+
+    .botb-instagram {
+      display: block;
+      border: 1px solid var(--border);
+      border-radius: calc(var(--radius) + 12px);
+      background: linear-gradient(90deg, oklch(0.55 0.22 260 / .3), var(--card), oklch(0.70 0.19 45 / .3));
+      padding: clamp(2.5rem, 8vw, 4rem);
+      text-align: center;
+      transition: border-color .15s ease;
+    }
+
+    .botb-instagram:hover {
+      border-color: var(--ember);
+    }
+
+    .botb-instagram strong {
+      display: block;
+      margin-top: .75rem;
+      color: var(--bone);
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 9vw, 4.5rem);
+      line-height: 1;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--ink);
+      padding: 2.5rem 0;
+      color: var(--muted-foreground);
+    }
+
+    .botb-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .botb-footer strong {
+      color: var(--bone);
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: .1em;
+    }
+
+    .botb-footer a {
+      color: var(--bone);
+    }
+
+    @media (max-width: 760px) {
+      .botb-hero {
+        padding-top: 4rem;
+      }
+
+      .botb-actions,
+      .botb-footer {
+        flex-direction: column;
+      }
+
+      .botb-primary,
+      .botb-secondary {
+        width: 100%;
+      }
+
+      .botb-grid,
+      .botb-two-col,
+      .botb-sponsor-grid,
+      .botb-sponsor-grid.community {
+        grid-template-columns: 1fr;
+      }
+
+      .botb-countdown {
+        gap: .5rem;
+      }
+
+      .botb-countdown strong {
+        font-size: 2rem;
+      }
+
+      .botb-logo {
+        width: min(100%, 330px);
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsEvent",
+      "name": "Coachella Valley's Battle of the Badges",
+      "startDate": "2026-10-17T19:00:00-07:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "sport": "Boxing",
+      "location": {
+        "@type": "Place",
+        "name": "Palm Desert Civic Center Park",
+        "address": "43900 San Pablo Ave, Palm Desert, CA 92260"
+      },
+      "organizer": {
+        "@type": "Person",
+        "name": "Jesus Gonzalez",
+        "telephone": "(760) 335-8895"
+      },
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "url": "tel:+17603358895"
+      }
+    }
+  </script>
+</head>
+<body>
+  <main>
+    <section class="botb-hero">
+      <div class="botb-shell">
+        <p class="botb-eyebrow">COACHELLA VALLEY'S</p>
+        <img class="botb-logo" src="/assets/battle-of-the-badges-logo.png" alt="Coachella Valley's Battle of the Badges" width="1402" height="1122">
+        <p class="botb-lede">A community fight night where local athletes step into the ring for pride, purpose, and the badges that serve the valley.</p>
+        <div class="botb-actions">
+          <a class="botb-primary" href="tel:+17603358895">Sponsorship / VIP Tables (760) 335-8895</a>
+          <a class="botb-secondary" href="https://instagram.com/CVBattleoftheBadges" target="_blank" rel="noreferrer">Follow @CVBattleoftheBadges</a>
+        </div>
+        <div class="botb-date-pill">
+          <strong>Sat - Oct 17 - 2026</strong>
+          <span>Doors 5 PM - First Bout 7 PM</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="botb-band">
+      <div class="botb-shell" style="text-align:center">
+        <p class="botb-section-kicker" id="countdown-label">Bell rings in</p>
+        <div class="botb-countdown" aria-live="polite">
+          <div><strong id="days">00</strong><span>Days</span></div>
+          <div><strong id="hours">00</strong><span>Hrs</span></div>
+          <div><strong id="minutes">00</strong><span>Min</span></div>
+          <div><strong id="seconds">00</strong><span>Sec</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="botb-shell">
+      <div class="botb-grid">
+        <div class="botb-card"><span>Date</span><strong>Saturday&#10;October 17, 2026</strong></div>
+        <div class="botb-card"><span>Doors</span><strong>5:00 PM</strong></div>
+        <div class="botb-card"><span>First Bout</span><strong>7:00 PM</strong></div>
+        <div class="botb-card"><span>Location</span><strong>Palm Desert&#10;Civic Center Park</strong></div>
+      </div>
+    </section>
+
+    <section class="botb-section botb-section-alt">
+      <div class="botb-shell botb-two-col">
+        <div>
+          <p class="botb-section-kicker">Community Fight Night</p>
+          <h1 class="botb-heading">Badges <em>in the Ring.</em></h1>
+          <p class="botb-copy">Coachella Valley's Battle of the Badges brings the community together for a sanctioned amateur boxing showcase with local pride, live energy, and a full night of action.</p>
+          <p class="botb-copy">For sponsorship and VIP tables, contact Jesus Gonzalez at (760) 335-8895.</p>
+        </div>
+        <div class="botb-stats">
+          <div class="botb-stat"><strong>2026</strong><span>October 17</span></div>
+          <div class="botb-stat"><strong>5 PM</strong><span>Doors open</span></div>
+          <div class="botb-stat"><strong>7 PM</strong><span>First bout</span></div>
+          <div class="botb-stat"><strong>Live</strong><span>Community fight night</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="botb-section">
+      <div class="botb-shell">
+        <div class="botb-contact">
+          <p class="botb-section-kicker">Sponsorship & VIP Tables</p>
+          <h2 class="botb-heading">Contact<br>the Event.</h2>
+          <p class="botb-copy">Reserve sponsorship opportunities and VIP tables directly with the event organizer.</p>
+          <div class="botb-actions" style="justify-content:flex-start">
+            <a class="botb-primary" href="tel:+17603358895">Call (760) 335-8895</a>
+            <span class="botb-copy" style="margin:0">Ask for <strong style="color:var(--bone)">Jesus Gonzalez</strong></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="botb-section botb-section-alt">
+      <div class="botb-shell botb-two-col">
+        <div>
+          <p class="botb-section-kicker">The Venue</p>
+          <h2 class="botb-heading">Palm Desert<br>Civic Center<br>Park</h2>
+          <p class="botb-copy">43900 San Pablo Ave, Palm Desert, CA 92260</p>
+          <a class="botb-secondary" href="https://www.google.com/maps/search/?api=1&amp;query=Palm%20Desert%20Civic%20Center%20Park%2043900%20San%20Pablo%20Ave%20Palm%20Desert%20CA%2092260" target="_blank" rel="noreferrer">Open in Google Maps</a>
+        </div>
+        <div class="botb-map">
+          <iframe title="Palm Desert Civic Center Park map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Palm%20Desert%20Civic%20Center%20Park%2043900%20San%20Pablo%20Ave%20Palm%20Desert%20CA%2092260&amp;output=embed"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="botb-section">
+      <div class="botb-shell">
+        <div style="text-align:center">
+          <p class="botb-section-kicker">Powered by the Valley</p>
+          <h2 class="botb-heading">Official Sponsors</h2>
+          <p class="botb-copy">Made possible by these proud sponsors and community partners.</p>
+        </div>
+        <div class="botb-sponsor-grid">
+          <div class="botb-sponsor">Fix Auto Collision</div>
+          <div class="botb-sponsor">Winchell's Donut House</div>
+          <div class="botb-sponsor">Martin Bros Landscape Design</div>
+          <div class="botb-sponsor">SoCal Branding</div>
+          <div class="botb-sponsor">Boy's Hamburgers</div>
+          <div class="botb-sponsor">Abdul Shawkat & Dina Burke Shawkat-Trust</div>
+          <div class="botb-sponsor">Burrtec</div>
+          <div class="botb-sponsor">Riverside Sheriffs' Association</div>
+          <div class="botb-sponsor">Financial 911 Services</div>
+        </div>
+        <h3 class="botb-section-kicker" style="margin-top:3rem;text-align:center">Community Partners</h3>
+        <div class="botb-sponsor-grid community">
+          <div class="botb-sponsor">Cabrillo Credit Union</div>
+          <div class="botb-sponsor">La Michoacana Ice Cream Parlor</div>
+          <div class="botb-sponsor">Henriquez Construction</div>
+          <div class="botb-sponsor">B-OK Locksmiths</div>
+          <div class="botb-sponsor">Matco Tools</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="botb-section">
+      <div class="botb-shell">
+        <a class="botb-instagram" href="https://instagram.com/CVBattleoftheBadges" target="_blank" rel="noreferrer">
+          <span class="botb-section-kicker">Follow the Fight</span>
+          <strong>@CVBattleoftheBadges</strong>
+          <p class="botb-copy">Fight updates, sponsor highlights, and event drops from Battle of the Badges.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="botb-shell botb-footer">
+      <div>
+        <strong>Battle of the Badges</strong>
+        <div>Palm Desert - Oct 17, 2026 - Doors 5 PM</div>
+      </div>
+      <div>
+        Contact: <a href="tel:+17603358895">(760) 335-8895</a> - IG
+        <a href="https://instagram.com/CVBattleoftheBadges" target="_blank" rel="noreferrer">@CVBattleoftheBadges</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var target = new Date("2026-10-17T19:00:00-07:00").getTime();
+      var label = document.getElementById("countdown-label");
+      var days = document.getElementById("days");
+      var hours = document.getElementById("hours");
+      var minutes = document.getElementById("minutes");
+      var seconds = document.getElementById("seconds");
+
+      function pad(value) {
+        return String(value).padStart(2, "0");
+      }
+
+      function tick() {
+        var remaining = Math.max(0, target - Date.now());
+        if (remaining <= 0) {
+          label.textContent = "Fight night has passed";
+        }
+        days.textContent = pad(Math.floor(remaining / 86400000));
+        hours.textContent = pad(Math.floor(remaining / 3600000 % 24));
+        minutes.textContent = pad(Math.floor(remaining / 60000 % 60));
+        seconds.textContent = pad(Math.floor(remaining / 1000 % 60));
+      }
+
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
+</body>
+</html>
