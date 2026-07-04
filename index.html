@@ -70,6 +70,90 @@
         url("assets/battle-of-the-badges-boxing.jpg") center 42% / cover no-repeat;
     }
 
+    .botb-lighting {
+      position: fixed;
+      inset: -22%;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .78;
+      mix-blend-mode: screen;
+      background:
+        radial-gradient(ellipse at 0% 38%, oklch(0.66 0.30 27 / .48), transparent 24rem),
+        radial-gradient(ellipse at 100% 32%, oklch(0.62 0.27 260 / .50), transparent 25rem),
+        radial-gradient(ellipse at 50% 8%, oklch(0.95 0.05 85 / .12), transparent 30rem);
+      filter: blur(16px) saturate(1.25);
+      animation: botb-siren-drift 11s ease-in-out infinite alternate;
+    }
+
+    .botb-lighting::before,
+    .botb-lighting::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
+
+    .botb-lighting::before {
+      opacity: .58;
+      background:
+        linear-gradient(64deg, transparent 0 21%, oklch(0.70 0.30 27 / .34) 28%, transparent 36% 47%, oklch(0.60 0.27 260 / .34) 55%, transparent 64% 100%),
+        linear-gradient(116deg, transparent 0 24%, oklch(0.95 0.03 85 / .14) 34%, transparent 45% 100%);
+      background-size: 160% 160%;
+      animation: botb-siren-sweep 6.8s ease-in-out infinite;
+    }
+
+    .botb-lighting::after {
+      opacity: .68;
+      background:
+        radial-gradient(ellipse at 10% 50%, oklch(0.72 0.32 27 / .32), transparent 21rem),
+        radial-gradient(ellipse at 90% 50%, oklch(0.62 0.29 260 / .32), transparent 21rem),
+        radial-gradient(circle at 50% 48%, oklch(0.90 0.06 90 / .10), transparent 18rem);
+      animation: botb-siren-pulse 3.4s ease-in-out infinite;
+    }
+
+    @keyframes botb-siren-drift {
+      0% {
+        transform: translate3d(-2%, -1%, 0) scale(1) rotate(-1deg);
+      }
+
+      50% {
+        transform: translate3d(2%, 1%, 0) scale(1.04) rotate(1deg);
+      }
+
+      100% {
+        transform: translate3d(3%, -1%, 0) scale(1.02) rotate(-.5deg);
+      }
+    }
+
+    @keyframes botb-siren-sweep {
+      0% {
+        background-position: 120% 50%, 0% 50%;
+        transform: translate3d(-6%, 0, 0) rotate(-4deg);
+      }
+
+      50% {
+        background-position: 50% 50%, 80% 50%;
+        transform: translate3d(3%, 0, 0) rotate(3deg);
+      }
+
+      100% {
+        background-position: -20% 50%, 140% 50%;
+        transform: translate3d(7%, 0, 0) rotate(-2deg);
+      }
+    }
+
+    @keyframes botb-siren-pulse {
+      0%,
+      100% {
+        opacity: .42;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: .85;
+        transform: scale(1.08);
+      }
+    }
+
     img {
       display: block;
       max-width: 100%;
@@ -342,6 +426,133 @@
       line-height: 1.7;
     }
 
+    .botb-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .botb-gallery-item {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: calc(var(--radius) + 10px);
+      background: oklch(0.10 0.02 40 / .72);
+      box-shadow: 0 20px 58px -34px oklch(0.55 0.22 260 / .78);
+      margin: 0;
+    }
+
+    .botb-gallery-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(to bottom, transparent 58%, oklch(0.05 0.01 40 / .42)),
+        linear-gradient(120deg, oklch(0.58 0.24 27 / .14), transparent 38%, oklch(0.55 0.22 260 / .14));
+    }
+
+    .botb-gallery-button {
+      display: block;
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      cursor: zoom-in;
+      padding: 0;
+      text-align: inherit;
+    }
+
+    .botb-gallery-button:focus-visible {
+      outline: 3px solid var(--fight-blue);
+      outline-offset: 4px;
+    }
+
+    .botb-gallery-item img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      transition: transform .35s ease;
+    }
+
+    .botb-gallery-item:hover img {
+      transform: scale(1.035);
+    }
+
+    .botb-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(1rem, 4vw, 2rem);
+      background:
+        radial-gradient(ellipse at 20% 20%, oklch(0.58 0.24 27 / .18), transparent 28rem),
+        radial-gradient(ellipse at 80% 18%, oklch(0.55 0.22 260 / .18), transparent 28rem),
+        oklch(0.04 0.01 40 / .88);
+      backdrop-filter: blur(12px);
+    }
+
+    .botb-lightbox.is-open {
+      display: flex;
+    }
+
+    .botb-lightbox-frame {
+      position: relative;
+      width: min(92vw, 1100px);
+      max-height: 92vh;
+      border: 1px solid oklch(0.55 0.22 260 / .45);
+      border-radius: calc(var(--radius) + 12px);
+      background: oklch(0.06 0.01 40 / .92);
+      box-shadow: 0 24px 80px -28px oklch(0.55 0.22 260 / .9);
+      padding: clamp(.75rem, 2vw, 1rem);
+    }
+
+    .botb-lightbox-image {
+      display: block;
+      width: 100%;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: calc(var(--radius) + 4px);
+      background: var(--ink);
+    }
+
+    .botb-lightbox-caption {
+      margin: .75rem 3.25rem 0 0;
+      color: var(--muted-foreground);
+      font-size: .95rem;
+      line-height: 1.45;
+    }
+
+    .botb-lightbox-close {
+      position: absolute;
+      right: .9rem;
+      bottom: .75rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      border: 1px solid oklch(0.55 0.22 260 / .55);
+      border-radius: 999px;
+      background: oklch(0.09 0.02 40 / .92);
+      color: var(--bone);
+      cursor: pointer;
+      font-size: 1.65rem;
+      line-height: 1;
+    }
+
+    .botb-lightbox-close:focus-visible {
+      outline: 3px solid var(--fight-blue);
+      outline-offset: 3px;
+    }
+
+    body.botb-lightbox-open {
+      overflow: hidden;
+    }
+
     .botb-stats {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -491,6 +702,12 @@
     }
 
     @media (max-width: 760px) {
+      .botb-lighting {
+        inset: -16%;
+        opacity: .58;
+        filter: blur(15px) saturate(1.18);
+      }
+
       body::before {
         background:
           linear-gradient(90deg, oklch(0.22 0.16 27 / .74), oklch(0.08 0.02 40 / .76) 42%, oklch(0.18 0.14 260 / .76)),
@@ -527,6 +744,7 @@
 
       .botb-grid,
       .botb-two-col,
+      .botb-gallery-grid,
       .botb-sponsor-grid,
       .botb-sponsor-grid.community {
         grid-template-columns: 1fr;
@@ -560,6 +778,14 @@
         width: min(100%, 330px);
       }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      .botb-lighting,
+      .botb-lighting::before,
+      .botb-lighting::after {
+        animation: none;
+      }
+    }
   </style>
   <script type="application/ld+json">
     {
@@ -589,6 +815,7 @@
   </script>
 </head>
 <body>
+  <div class="botb-lighting" aria-hidden="true"></div>
   <main>
     <section class="botb-hero">
       <div class="botb-shell">
@@ -596,8 +823,8 @@
         <img class="botb-logo" src="assets/battle-of-the-badges-logo.png" alt="Coachella Valley's Battle of the Badges" width="1402" height="1122">
         <p class="botb-lede">A community fight night where local athletes step into the ring for pride, purpose, and the badges that serve the valley.</p>
         <div class="botb-actions">
-          <a class="botb-primary" href="tel:+17603358895">Sponsorship / VIP Tables (760) 335-8895</a>
-          <a class="botb-secondary" href="https://instagram.com/CVBattleoftheBadges" target="_blank" rel="noreferrer">Follow @CVBattleoftheBadges</a>
+          <a class="botb-primary" href="https://events.ticketleap.com/tickets/coachella-valley-battle-of-the-badges/coachella-valley-battle-of-the-badges" target="_blank" rel="noreferrer">Buy Tickets</a>
+          <a class="botb-secondary" href="tel:+17603358895">Sponsorship / VIP Tables (760) 335-8895</a>
         </div>
         <div class="botb-date-pill">
           <strong>Sat - Oct 17 - 2026</strong>
@@ -650,12 +877,45 @@
 
     <section class="botb-section">
       <div class="botb-shell">
+        <div style="text-align:center">
+          <p class="botb-section-kicker">Fight Night Moments</p>
+          <h2 class="botb-heading">Event Gallery</h2>
+          <p class="botb-copy">Moments from Coachella Valley's Battle of the Badges fight night.</p>
+        </div>
+        <div class="botb-gallery-grid" aria-label="Battle of the Badges event gallery">
+          <figure class="botb-gallery-item">
+            <button class="botb-gallery-button" type="button" aria-label="Open fight action photo">
+              <img src="assets/gallery-fight-action.png" alt="Two Battle of the Badges boxers trading punches in the ring" loading="lazy" width="1536" height="1024">
+            </button>
+          </figure>
+          <figure class="botb-gallery-item">
+            <button class="botb-gallery-button" type="button" aria-label="Open entrance sparks photo">
+              <img src="assets/gallery-entrance-sparks.png" alt="A boxer standing at the Battle of the Badges entrance with red and blue sparks" loading="lazy" width="1536" height="1024">
+            </button>
+          </figure>
+          <figure class="botb-gallery-item">
+            <button class="botb-gallery-button" type="button" aria-label="Open champion photo">
+              <img src="assets/gallery-champion.png" alt="A Battle of the Badges fighter celebrating with a championship belt" loading="lazy" width="1536" height="1024">
+            </button>
+          </figure>
+          <figure class="botb-gallery-item">
+            <button class="botb-gallery-button" type="button" aria-label="Open ring crew photo">
+              <img src="assets/gallery-ring-crew.png" alt="Battle of the Badges ring crew posing near the boxing ring" loading="lazy" width="1536" height="1024">
+            </button>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="botb-section">
+      <div class="botb-shell">
         <div class="botb-contact">
           <p class="botb-section-kicker">Sponsorship & VIP Tables</p>
           <h2 class="botb-heading">Contact<br>the Event.</h2>
           <p class="botb-copy">Reserve sponsorship opportunities and VIP tables directly with the event organizer.</p>
           <div class="botb-actions" style="justify-content:flex-start">
-            <a class="botb-primary" href="tel:+17603358895">Call (760) 335-8895</a>
+            <a class="botb-primary" href="https://events.ticketleap.com/tickets/coachella-valley-battle-of-the-badges/coachella-valley-battle-of-the-badges" target="_blank" rel="noreferrer">Buy Tickets</a>
+            <a class="botb-secondary" href="tel:+17603358895">Call (760) 335-8895</a>
             <span class="botb-copy" style="margin:0">Ask for <strong style="color:var(--bone)">Jesus Gonzalez</strong></span>
           </div>
         </div>
@@ -734,6 +994,14 @@
     </div>
   </footer>
 
+  <div class="botb-lightbox" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Gallery image preview">
+    <div class="botb-lightbox-frame">
+      <img class="botb-lightbox-image" src="" alt="">
+      <p class="botb-lightbox-caption"></p>
+      <button class="botb-lightbox-close" type="button" aria-label="Close gallery preview">&times;</button>
+    </div>
+  </div>
+
   <script>
     (function () {
       var target = new Date("2026-10-17T19:00:00-07:00").getTime();
@@ -760,6 +1028,56 @@
 
       tick();
       setInterval(tick, 1000);
+    })();
+
+    (function () {
+      var lightbox = document.getElementById("gallery-lightbox");
+      var lightboxImage = lightbox.querySelector(".botb-lightbox-image");
+      var lightboxCaption = lightbox.querySelector(".botb-lightbox-caption");
+      var closeButton = lightbox.querySelector(".botb-lightbox-close");
+      var lastTrigger = null;
+
+      function openLightbox(button) {
+        var image = button.querySelector("img");
+        lastTrigger = button;
+        lightboxImage.src = image.currentSrc || image.src;
+        lightboxImage.alt = image.alt;
+        lightboxCaption.textContent = image.alt;
+        lightbox.classList.add("is-open");
+        document.body.classList.add("botb-lightbox-open");
+        closeButton.focus();
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove("is-open");
+        document.body.classList.remove("botb-lightbox-open");
+        lightboxImage.removeAttribute("src");
+        lightboxImage.alt = "";
+        lightboxCaption.textContent = "";
+        if (lastTrigger) {
+          lastTrigger.focus();
+        }
+      }
+
+      document.querySelectorAll(".botb-gallery-button").forEach(function (button) {
+        button.addEventListener("click", function () {
+          openLightbox(button);
+        });
+      });
+
+      closeButton.addEventListener("click", closeLightbox);
+
+      lightbox.addEventListener("click", function (event) {
+        if (event.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+          closeLightbox();
+        }
+      });
     })();
   </script>
 </body>
