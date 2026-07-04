@@ -195,6 +195,42 @@
       text-transform: uppercase;
     }
 
+    .botb-form-callout {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .25rem;
+      width: fit-content;
+      margin: 1rem auto 0;
+      border: 2px solid oklch(0.55 0.22 260 / .6);
+      border-radius: 999px;
+      background: oklch(0.09 0.02 40 / .58);
+      padding: .85rem 1.35rem;
+      color: var(--bone);
+      box-shadow: 0 14px 42px -24px oklch(0.55 0.22 260 / .9);
+      backdrop-filter: blur(12px);
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .botb-form-callout:hover {
+      transform: scale(1.03);
+      border-color: var(--fight-blue);
+      background: oklch(0.55 0.22 260 / .2);
+    }
+
+    .botb-form-callout strong {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .botb-form-callout span {
+      color: var(--muted-foreground);
+      font-size: .75rem;
+      letter-spacing: .08em;
+    }
+
     .botb-band {
       border-block: 1px solid var(--border);
       background: oklch(0.09 0.01 40 / .72);
@@ -430,7 +466,8 @@
       }
 
       .botb-primary,
-      .botb-secondary {
+      .botb-secondary,
+      .botb-form-callout {
         width: 100%;
       }
 
@@ -496,6 +533,10 @@
           <strong>Sat - Oct 17 - 2026</strong>
           <span>Doors 5 PM - First Bout 7 PM</span>
         </div>
+        <a class="botb-form-callout" href="assets/physical-form.pdf" target="_blank" download="Physical Form.pdf">
+          <strong>Download Physical Form</strong>
+          <span>View or save the required PDF form</span>
+        </a>
       </div>
     </section>
 
@@ -575,7 +616,7 @@
         <div class="botb-sponsor-grid">
           <div class="botb-sponsor">Fix Auto Collision</div>
           <div class="botb-sponsor">Winchell's Donut House</div>
-          <div class="botb-sponsor">Martin Bros Landscape Design</div>
+          <div class="botb-sponsor">Martinez Bros Landscape Design</div>
           <div class="botb-sponsor">SoCal Branding</div>
           <div class="botb-sponsor">Boy's Hamburgers</div>
           <div class="botb-sponsor">Abdul Shawkat & Dina Burke Shawkat-Trust</div>
