@@ -13,7 +13,7 @@
   <meta name="twitter:title" content="Coachella Valley's Battle of the Badges">
   <meta name="twitter:description" content="Saturday, October 17, 2026 at Palm Desert Civic Center Park. Doors open at 5 PM, first bout at 7 PM.">
   <meta name="twitter:image" content="assets/battle-of-the-badges-flyer.jpg">
-  <link rel="preload" as="image" href="assets/battle-of-the-badges-logo.png">
+  <link rel="preload" as="image" href="assets/battle-of-the-badges-floating-logo.png">
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -206,6 +206,31 @@
       width: min(100%, 600px);
       margin: .75rem auto 0;
       filter: drop-shadow(0 8px 42px rgba(0, 0, 0, .95));
+      animation: botb-logo-bounce 5.2s ease-in-out infinite;
+      transform-origin: center;
+      will-change: transform;
+    }
+
+    @keyframes botb-logo-bounce {
+      0% {
+        transform: translate3d(-24px, -10px, 0) rotate(-1.6deg) scale(1);
+      }
+
+      25% {
+        transform: translate3d(30px, 12px, 0) rotate(1.25deg) scale(1.025);
+      }
+
+      50% {
+        transform: translate3d(18px, -18px, 0) rotate(-.8deg) scale(.995);
+      }
+
+      75% {
+        transform: translate3d(-28px, 16px, 0) rotate(1.45deg) scale(1.02);
+      }
+
+      100% {
+        transform: translate3d(-24px, -10px, 0) rotate(-1.6deg) scale(1);
+      }
     }
 
     .botb-eyebrow {
@@ -776,13 +801,37 @@
 
       .botb-logo {
         width: min(100%, 330px);
+        animation-name: botb-logo-bounce-mobile;
+      }
+
+      @keyframes botb-logo-bounce-mobile {
+        0% {
+          transform: translate3d(-10px, -6px, 0) rotate(-1.1deg) scale(1);
+        }
+
+        25% {
+          transform: translate3d(12px, 7px, 0) rotate(1deg) scale(1.02);
+        }
+
+        50% {
+          transform: translate3d(7px, -10px, 0) rotate(-.75deg) scale(.995);
+        }
+
+        75% {
+          transform: translate3d(-12px, 9px, 0) rotate(1.1deg) scale(1.015);
+        }
+
+        100% {
+          transform: translate3d(-10px, -6px, 0) rotate(-1.1deg) scale(1);
+        }
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
       .botb-lighting,
       .botb-lighting::before,
-      .botb-lighting::after {
+      .botb-lighting::after,
+      .botb-logo {
         animation: none;
       }
     }
@@ -820,7 +869,7 @@
     <section class="botb-hero">
       <div class="botb-shell">
         <p class="botb-eyebrow">COACHELLA VALLEY'S</p>
-        <img class="botb-logo" src="assets/battle-of-the-badges-logo.png" alt="Coachella Valley's Battle of the Badges" width="1402" height="1122">
+        <img class="botb-logo" src="assets/battle-of-the-badges-floating-logo.png" alt="Coachella Valley's Battle of the Badges" width="1536" height="1024">
         <p class="botb-lede">A community fight night where local athletes step into the ring for pride, purpose, and the badges that serve the valley.</p>
         <div class="botb-actions">
           <a class="botb-primary" href="https://events.ticketleap.com/tickets/coachella-valley-battle-of-the-badges/coachella-valley-battle-of-the-badges" target="_blank" rel="noreferrer">Buy Tickets</a>
