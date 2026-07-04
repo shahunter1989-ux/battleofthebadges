@@ -52,9 +52,23 @@
 
     body {
       margin: 0;
-      background: var(--background);
+      background:
+        linear-gradient(90deg, oklch(0.22 0.16 27 / .74), oklch(0.08 0.02 40 / .76) 42%, oklch(0.18 0.14 260 / .76)),
+        linear-gradient(to bottom, oklch(0.06 0.01 40 / .35), oklch(0.06 0.01 40 / .82)),
+        url("assets/battle-of-the-badges-boxing.jpg") center 42% / cover fixed;
       color: var(--foreground);
       font-family: var(--font-body);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 50% 0%, oklch(0.72 0.15 65 / .16), transparent 34rem),
+        linear-gradient(to bottom, oklch(0.09 0.02 40 / .12), oklch(0.09 0.02 40 / .78));
     }
 
     img {
@@ -78,9 +92,6 @@
       justify-content: center;
       text-align: center;
       padding: 4rem 1.25rem;
-      background-image: url("assets/battle-of-the-badges-boxing.jpg");
-      background-size: cover;
-      background-position: 50% 42%;
     }
 
     .botb-hero::before,
@@ -99,7 +110,7 @@
 
     .botb-hero::after {
       content: "";
-      background: linear-gradient(to bottom, oklch(0.09 0.02 40 / 0.35), oklch(0.09 0.02 40 / 0.68) 52%, var(--background));
+      background: linear-gradient(to bottom, oklch(0.09 0.02 40 / 0.18), oklch(0.09 0.02 40 / 0.62) 52%, oklch(0.09 0.02 40 / 0.84));
     }
 
     .botb-shell {
@@ -233,8 +244,9 @@
 
     .botb-band {
       border-block: 1px solid var(--border);
-      background: oklch(0.09 0.01 40 / .72);
+      background: oklch(0.09 0.01 40 / .82);
       padding: 2.5rem 0;
+      backdrop-filter: blur(6px);
     }
 
     .botb-countdown {
@@ -301,7 +313,8 @@
 
     .botb-section-alt {
       border-block: 1px solid var(--border);
-      background: oklch(0.17 0.03 40 / .38);
+      background: oklch(0.12 0.02 40 / .62);
+      backdrop-filter: blur(6px);
     }
 
     .botb-two-col {
@@ -432,9 +445,10 @@
 
     footer {
       border-top: 1px solid var(--border);
-      background: var(--ink);
+      background: oklch(0.06 0.01 40 / .9);
       padding: 2.5rem 0;
       color: var(--muted-foreground);
+      backdrop-filter: blur(8px);
     }
 
     .botb-footer {
@@ -456,6 +470,13 @@
     }
 
     @media (max-width: 760px) {
+      body {
+        background:
+          linear-gradient(90deg, oklch(0.22 0.16 27 / .78), oklch(0.08 0.02 40 / .8) 42%, oklch(0.18 0.14 260 / .8)),
+          linear-gradient(to bottom, oklch(0.06 0.01 40 / .45), oklch(0.06 0.01 40 / .86)),
+          url("assets/battle-of-the-badges-boxing.jpg") center top / cover scroll;
+      }
+
       .botb-hero {
         padding-top: 4rem;
       }
